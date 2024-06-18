@@ -17,7 +17,7 @@ public interface IClientsRepository
     Task UpdateAsync(Client todoItem);
 
     // Eliminar un elemento TodoItem específico por su Id
-    Task DeleteAsync(int id);
+    Task DeleteAsync(Client id);
 
     // Guardar los cambios en la base de datos
     Task SaveChangesAsync();

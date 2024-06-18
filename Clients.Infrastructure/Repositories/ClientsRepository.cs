@@ -32,12 +32,14 @@ public class ClientsRepository : IClientsRepository
 
     public Task UpdateAsync(Client client)
     {
-        throw new NotImplementedException();
+        Context.Clients.Update(client);
+        return SaveChangesAsync();
     }
 
-    public Task DeleteAsync(int id)
+    public Task DeleteAsync(Client client)
     {
-        throw new NotImplementedException();
+        Context.Clients.Remove(client);
+        return SaveChangesAsync();
     }
 
     public Task SaveChangesAsync()

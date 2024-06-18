@@ -3,8 +3,9 @@ using MediatR;
 
 namespace Clients.Application.Commands;
 
-public class CreateClientCommand : IRequest<Guid>, IClientCommand
-{
+public class UpdateClientCommand : IRequest<Guid>, IClientCommand
+{   
+    public Guid Id { get; set; }
     public string Name { get; set; }
     public string LastName { get; set; }
     public string Genre { get; set; }
@@ -13,9 +14,10 @@ public class CreateClientCommand : IRequest<Guid>, IClientCommand
     public string Country { get; set; }
     public string PostalCode { get; set; }
     public string Email { get; set; }
-
-    public CreateClientCommand(string name, string lastName, string genre, DateTime birthDate, string address, string country, string postalCode, string email)
+    
+    public UpdateClientCommand(string id,string name, string lastName, string genre, DateTime birthDate, string address, string country, string postalCode, string email)
     {
+        Id = Guid.Parse(id);
         Name = name;
         LastName = lastName;
         Genre = genre;
